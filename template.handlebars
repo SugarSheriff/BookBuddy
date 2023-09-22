@@ -1,0 +1,62 @@
+<div class="hero is-primary">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title">{{title}}</h1>
+            <p class="subtitle">{{subtitle}}</p>
+        </div>
+    </div>
+</div>
+
+<nav class="navbar is-primary">
+    <div class="container">
+        <div class="navbar-menu">
+            <div class="navbar-start">
+                {{#each menuItems}}
+                <a href="{{link}}" class="navbar-item">{{text}}</a>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-one-quarter">
+                <section class="box">
+                    <h2 class="title">Featured Books</h2>
+                    <div id="featured-books">
+                        {{#each featuredBooks}}
+                        <div class="box">
+                            <h3 class="title">{{title}}</h3>
+                            <p>{{author}}</p>
+                            <p>{{description}}</p>
+                        </div>
+                        {{/each}}
+                    </div>
+                </section>
+            </div>
+            <div class="column">
+                <section class="box">
+                    <h2 class="title">Search for Books</h2>
+                    <form action="#" method="GET">
+                        <div class="field has-addons">
+                            <div class="control is-expanded">
+                                <input class="input" type="text" name="search" placeholder="Search for books...">
+                            </div>
+                            <div class="control">
+                                <button class="button is-primary" type="submit">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer is-primary">
+    <div class="content has-text-centered">
+        <p>{{footerText}}</p>
+    </div>
+</footer>
