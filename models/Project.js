@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Project extends Model {}
-// we can rename this to books instead of project.
+// we can rename this to book instead of project.
 Project.init(
   {
     id: {
@@ -45,3 +45,5 @@ Project.init(
 );
 
 module.exports = Project;
+
+// remember renamed this to Book
