@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Project extends Model {}
-// we can rename this to books instead of project.
-Project.init(
+class Book extends Model {}
+
+Book.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -15,16 +15,16 @@ Project.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description: {
+    author: {
       type: DataTypes.STRING,
+      allowNull: false
     },
-    date_created: {
-      type: DataTypes.DATE,
+    description: {
+      type: DataTypes.TEXT,
       allowNull: false,
-      defaultValue: DataTypes.NOW,
     },
-    needed_funding: {
-      type: DataTypes.FLOAT,
+    thumbnail: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
     user_id: {
@@ -40,8 +40,8 @@ Project.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+    modelName: 'book',
   }
 );
 
-module.exports = Project;
+module.exports = Book;
