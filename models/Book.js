@@ -24,7 +24,7 @@ Book.init(
       allowNull: false,
     },
     thumbnail: {
-      type: DataTypes.STRING,
+      type: DataTypes.BLOB, // question about this
       allowNull: false,
     },
     user_id: {
