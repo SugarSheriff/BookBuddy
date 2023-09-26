@@ -1,17 +1,16 @@
 @import url('https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css');
 
+/* Body styles */
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+    background-color: #f0f0f0; /* Soft gray background */
     color: #333;
 }
 
 /* Header styles */
 header {
-    background-color: #0078d4;
-    color: white;
+    background-color: #6a8ea6; /* Calm blue */
+    color: #fff; /* White text */
     padding: 20px 0;
     text-align: center;
     position: relative;
@@ -26,7 +25,7 @@ header {
 
 /* Sidebar styles for Featured Books */
 .sidebar {
-    background-color: #f4f4f4;
+    background-color: #e0e0e0; /* Light gray */
     padding: 20px;
     border-right: 1px solid #ccc;
 }
@@ -39,8 +38,8 @@ header {
 /* Footer styles */
 footer {
     text-align: center;
-    background-color: #0078d4;
-    color: white;
+    background-color: #6a8ea6; /* Calm blue */
+    color: #fff; /* White text */
     padding: 10px 0;
 }
 
