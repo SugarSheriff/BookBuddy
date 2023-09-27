@@ -1,4 +1,25 @@
-// const router = require('express').Router();
+const router = require('express').Router();
+const { Book } = require('../../models');
+const { Op } = require('sequelize');
+
+router.get('/search' , async (req, res) => {
+  try {
+    const searchTerm = req.query.q;
+    console.log('This is the search term:', searchTerm);
+    const books = await Book.findAll({
+      where: {
+        title: {
+          [Op.like]: `%${searchTerm}%`,
+        },
+      },
+    });
+    res.json(books);
+  } catch (err) {
+    res.status(500).json({ message: 'Error when serching books.' })
+  }
+});
+
+module.exports = router;
 
 // // javier google books api
 // const googleApiKey = `AIzaSyDClhvWRLjTV_3Ivco7Wq3tsDt8-yh38rc`;
@@ -35,5 +56,3 @@
 //   const searchTerm = 'The Long of the Ring';
 //   const apiKey = `AIzaSyDClhvWRLjTV_3Ivco7Wq3tsDt8-yh38rc`;
 //   fetchBooks(searchTerm, apiKey);
-
-//   module.exports = fetchBooks;

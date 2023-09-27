@@ -31,21 +31,27 @@ const renderTemplate = async () => {
 };
 
 const fetchBooks = async (searchTerm) => {
-  const apiKey = 'AIzaSyDClhvWRLjTV_3Ivco7Wq3tsDt8-yh38rc';
-  const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=${apiKey}`);
-  const result = await response.json();
-  const books = result.items.slice(0, 3).map(item => ({
+  try {
+
+    const apiKey = 'AIzaSyDClhvWRLjTV_3Ivco7Wq3tsDt8-yh38rc';
+    const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=${apiKey}&maxResults=3`);
+    const result = await response.json();
+    console.log(result);
+    const books = result.items.slice(0, 3).map(item => ({
       title: item.volumeInfo.title,
       author: item.volumeInfo.authors?.join(', '),
       description: item.volumeInfo.description,
-      thumbnail: item.volumeInfo.imageLinks.thumbnail
-  }));
-  data.featuredBooks = books;
-  console.log(books);
+        thumbnail: item.volumeInfo.imageLinks.thumbnail
+    }));
+    // data.featuredBooks = books;
+    console.log(books);
+  } catch (err) {
+    console.error("Error fetching books:", error);
+  }
 };
 
 const displayBooks = (books) => {
-  const booksContainer = document.getElementsByClassName('myBooks');
+  const booksContainer = document.querySelector('.myBooks');
   booksContainer.innerHTML = '';
   books.forEach(book => {
       const bookDiv = document.createElement('div');
@@ -58,18 +64,30 @@ const displayBooks = (books) => {
       `;
       booksContainer.appendChild(bookDiv);
   });
+  console.log(books);
 };
 
 const init = async () => {
-  await renderTemplate();
+  // await renderTemplate();
   const form = document.querySelector('.box form');
-  form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const searchTerm = e.target.elements.search.value.trim();
+  form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const searchTerm = event.target.elements.search.value.trim();
       if (!searchTerm) return;
-      await fetchBooks(searchTerm);
-      await renderTemplate();
+      const response = await fetch('/api/books/search?q=' + searchTerm);
+      console.log("This is the:", response);
+      const books = await response.json();
+
+      displayBooks(books);
+      console.log(books)
+      // await fetchBooks(searchTerm);
+      // await renderTemplate();
   });
 };
 
 init();
+
+// response: items.volumInfo.title
+// items.volumInfo.author
+// items.imageLinks.thumbnail
+// item.volumeInfo.description

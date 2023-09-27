@@ -1,0 +1,14 @@
+{{#if books}}
+<h2>Search Results</h2>
+<ul>
+  {{#each books}}
+  <li>
+    <h3>{{title}}</h3>
+    <p>{{author}}</p>
+    <img src="{{thumbnail}}" alt="{{title}} cover">
+  </li>
+  {{/each}}
+</ul>
+{{else}}
+<p>No results for you</p>
+{{/if}}
