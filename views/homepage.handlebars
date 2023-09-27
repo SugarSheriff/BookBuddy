@@ -1,8 +1,8 @@
 <div class="hero is-primary">
     <div class="hero-body">
         <div class="container has-text-centered">
-            <h1 class="title">{{title}}</h1>
-            <p class="subtitle">{{subtitle}}</p>
+            <h1 class="title">Welcome to BookBuddy</h1>
+            <p class="subtitle">Your Book Discovery Platform</p>
         </div>
     </div>
 </div>
@@ -11,9 +11,13 @@
     <div class="container">
         <div class="navbar-menu">
             <div class="navbar-start">
-                {{#each menuItems}}
-                <a href="{{link}}" class="navbar-item">{{text}}</a>
-                {{/each}}
+                <a href="/" class="navbar-item">Home</a>
+                <a href="/dashboard" class="navbar-item">Dashboard</a>
+                {{#if logged-in}}
+                <a href="/" class="navbar-item" id="logout">Logout</a>
+                {{else}}
+                <a href="/login" class="navbar-item" id="login">Login</a>
+                {{/if}}
             </div>
         </div>
     </div>
@@ -46,14 +50,14 @@
                                 <input class="input" type="text" name="search" placeholder="Search for books...">
                             </div>
                             <div class="control">
-                                <button class="button is-primary" type="submit">Search</button>
+                                <button class="button is-primary" id="clickSearch" type="submit">Search</button>
                             </div>
                         </div>
                     </form>
                 </section>
 {{!-- testing the api here --}}
                 <div class="myBooks">
-
+                    <p>Results will appear here</p>
                 </div>
             </div>
         </div>
