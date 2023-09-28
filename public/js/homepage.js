@@ -44,9 +44,8 @@ const fetchBooks = async (searchTerm) => {
         thumbnail: item.volumeInfo.imageLinks.thumbnail
     }));
     // data.featuredBooks = books;
-    console.log(books);
   } catch (err) {
-    console.error("Error fetching books:", error);
+    console.error("Error fetching books:", err);
   }
 };
 
