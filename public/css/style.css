@@ -1,5 +1,6 @@
 @import url('https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css');
 
+/* Apply styles to the entire page */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -18,6 +19,7 @@ header {
 }
 
 /* User authentication styles */
+/* Position the user authentication element in the header */
 .user-auth {
     position: absolute;
     top: 20px;
@@ -44,8 +46,9 @@ footer {
     padding: 10px 0;
 }
 
-/* Responsive styles (adjust as needed) */
+/* Responsive styles */
 @media (max-width: 768px) {
+    /* Adjust header font sizes for smaller screens */
     header h1 {
         font-size: 24px;
     }
@@ -54,6 +57,7 @@ footer {
         font-size: 16px;
     }
 
+    /* Adjust user authentication element for smaller screens */
     .user-auth {
         top: 10px;
         right: 10px;
