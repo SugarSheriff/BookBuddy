@@ -4,6 +4,6 @@ const booksRoutes = require('./booksRoutes');
 const userRoutes = require('./userRoutes');
 
 router.use('/books', booksRoutes);
-router.use('/user', userRoutes );
+router.use('/users', userRoutes );
 
 module.exports = router;

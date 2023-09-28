@@ -43,12 +43,12 @@ const signupFormHandler = async (event) => {
         body: JSON.stringify({ name, email, password }),
         headers: { 'Content-Type': 'application/json' },
       });
-
+console.log(response);
       if (response.ok) {
         // If successful, redirect to the dashboard
         document.location.replace('/dashboard');
       } else {
-        alert('Signup failed. Please try again with a different email.');
+        // alert('Signup failed. Please try again with a different email.');
       }
     } catch (error) {
       console.error('An error occurred during signup:', error);
