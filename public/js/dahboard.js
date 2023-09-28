@@ -45,7 +45,6 @@ document.querySelector('.post-list')
 addEventListener('click', deletebuttonHandler);
 
 
-
 const fetchBooks = async (searchTerm) => {
   try {
     const apiKey = 'AIzaSyDClhvWRLjTV_3Ivco7Wq3tsDt8-yh38rc';
@@ -76,9 +75,8 @@ const displayResults = (books) => {
   });
 };
 
-const searchForm = document.querySelector('.box form');
-searchForm.addEventListener('submit', async (event) => {
-  console.log("Event TRiggered search");
+const searchForm = document.querySelector('#clickSearch');
+searchForm.addEventListener('click', async (event) => {
   event.preventDefault();
 
   const searchTerm = document.getElementById('search-books').value.trim();
