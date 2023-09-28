@@ -8,7 +8,7 @@ const newBookHandler = async (event) => {
   if (title && author && description) {
     const response = await fetch('api/books', {
       method: 'POST',
-      body: JSON.stringify({ title, authoer, description }),
+      body: JSON.stringify({ title, author, description }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -26,7 +26,7 @@ const deletebuttonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
 
-    const response = await fetch(`/api/books${id}`, {
+    const response = await fetch(`/api/books/${id}`, {
       method: 'DELETE',
     });
 
@@ -78,6 +78,7 @@ const displayResults = (books) => {
 
 const searchForm = document.querySelector('.box form');
 searchForm.addEventListener('submit', async (event) => {
+  console.log("Event TRiggered search");
   event.preventDefault();
 
   const searchTerm = document.getElementById('search-books').value.trim();
@@ -86,30 +87,3 @@ searchForm.addEventListener('submit', async (event) => {
   const books = await fetchBooks(searchTerm);
   displayResults(books);
 });
-
-// const init = async () => {
-//   const form = document.querySelector('.box form');
-//   form.addEventListener('submit', async (event) => {
-//     event.preventDefault();
-
-//     const searchTerm = event.target.elements.search.value.trim();
-//     if (!searchTerm) return;
-
-//     // Call the `/api/books/search` endpoint to search for books.
-//     const response = await fetch('/api/books/search?q=' + searchTerm);
-
-//     // Parse the response from the endpoint.
-//     const books = await response.json();
-
-//     // Display the results.
-//     displayResults(books);
-//   });
-// };
-
-// init();
-
-
-// response: items.volumInfo.title
-// items.volumInfo.author
-// items.imageLinks.thumbnail
-// item.volumeInfo.description
