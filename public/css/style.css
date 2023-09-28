@@ -55,8 +55,8 @@ footer {
     border-radius: 1rem;
     padding: 1rem;
     margin: 1rem auto;
-    box-shadow: 49px 23px 5px 0px rgba(0,0,0,0.75);
-    }
+    box-shadow: 12px 12px 5px 0px rgba(0,0,0,0.75);
+}
 
 /* Responsive styles */
 @media (max-width: 768px) {
