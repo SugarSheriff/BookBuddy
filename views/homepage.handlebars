@@ -14,14 +14,7 @@
                 <section class="box">
                     <h2 class="title">Featured Books</h2>
                     <div id="featured-books">
-                        {{#each featuredBooks}}
-                        <div class="box">
-                            <h3 class="title">{{title}}</h3>
-                            <img src="{{img}}" alt="{{title}} cover">
-                            <p>{{author}}</p>
-                            <p>{{description}}</p>
-                        </div>
-                        {{/each}}
+                        {{>save}} {{!-- this is a partials from save.handlebars --}}
                     </div>
                 </section>
             </div>
@@ -31,7 +24,7 @@
                     <form action="#" method="GET">
                         <div class="field has-addons">
                             <div class="control is-expanded">
-                                <input class="input" type="text" name="search" placeholder="Search for books...">
+                                <input class="input" type="text" name="search" placeholder="Search for books..." id="search-books">
                             </div>
                             <div class="control">
                                 <button class="button is-primary" id="clickSearch" type="submit">Search</button>
@@ -39,15 +32,16 @@
                         </div>
                     </form>
                 </section>
-{{!-- testing the api here --}}
+
                 <div class="myBooks">
                     <p>Results will appear here</p>
                 </div>
             </div>
+
         </div>
     </div>
 </main>
-
+    <script src="" ></script>
 <footer class="footer is-primary">
     <div class="content has-text-centered">
         <p>{{footerText}}</p>
