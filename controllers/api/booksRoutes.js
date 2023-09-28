@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Book } = require('../../models');
 const { Op } = require('sequelize');
 
-router.get('/search' , async (req, res) => {
+router.get('/books' , async (req, res) => {
   try {
     const searchTerm = req.query.q;
     console.log('This is the search term:', searchTerm);
@@ -13,6 +13,8 @@ router.get('/search' , async (req, res) => {
         },
       },
     });
+
+    res.render('books', { books });
     res.json(books);
   } catch (err) {
     res.status(500).json({ message: 'Error when serching books.' })
@@ -21,16 +23,5 @@ router.get('/search' , async (req, res) => {
 
 module.exports = router;
 
-const fetchBooks = async (searchTerm) => {
-  try {
-    const apiKey = 'AIzaSyDClhvWRLjTV_3Ivco7Wq3tsDt8-yh38rc';
-    const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=${apiKey}&maxResults=3`);
-      const result = await response.json();
-      return result.items;
-      return books;
-  } catch (err) {
-    console.error(err);
-    return [];
-  }
-};
+
 
