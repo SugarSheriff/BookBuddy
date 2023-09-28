@@ -1,4 +1,5 @@
 # BookBuddy - MVC App
+![](./images/book-buddy-screenshot.png)
 
 Welcome to BookBuddy, your Book Discovery Platform!
 
