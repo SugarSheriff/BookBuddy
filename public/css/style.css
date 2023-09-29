@@ -70,6 +70,18 @@ footer {
     box-shadow: 12px 12px 5px 0px rgba(0,0,0,0.75);
 }
 
+.dashboard-welcome
+    {
+    width: 50%;
+    background: #00d1b28a;
+    height: 5vh;
+    text-align: center;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 1rem auto;
+    box-shadow: 12px 12px 5px 0px rgba(0,0,0,0.75);
+}
+
 /* Responsive styles */
 @media (max-width: 768px) {
     /* Adjust header font sizes for smaller screens */
