@@ -1,7 +1,7 @@
 
 const fetchBooks = async (searchTerm) => {
   try {
-    const apiKey = 'AIzaSyDClhvWRLjTV_3Ivco7Wq3tsDt8-yh38rc';
+    const apiKey = "AIzaSyDClhvWRLjTV_3Ivco7Wq3tsDt8-yh38rc";
     const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=${apiKey}&maxResults=3`);
 
       const result = await response.json();
