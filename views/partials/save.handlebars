@@ -1,18 +1,15 @@
 {{#if books}}
-<h2>Search Results</h2>
 <ul>
   {{#each books}}
   <li>
-    <h3 class="title">{{title}}</h3>
+    <h3 class="name">{{name}}</h3>
     <p>{{author}}</p>
-    <img src="{{thumbnail}}" alt="{{title}} cover">
-    <form class="save-book-form">
-      <input type="hidden" name="bookId" value="{{id}}">
-      <button type="submit">Save</button>
-    </form>
+    <img src="{{thumbnail}}" alt="{{name}} cover">
   </li>
   {{/each}}
 </ul>
 {{else}}
-<p>No results for you</p>
+<h2>You can login if you want to.</h2>
+<br>
+<p>Your favorite Books will appear here in the future.</p>
 {{/if}}
